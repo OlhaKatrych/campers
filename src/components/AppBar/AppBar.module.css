@@ -1,8 +1,5 @@
 .container {
     display: flex;
     align-items: center;
-    margin: 0 auto;
-    padding: 28px 0 28px 64px;
-
-    outline: black 1px solid;
+    padding: 24px 0 24px 64px;
 }

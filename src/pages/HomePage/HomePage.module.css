@@ -1,0 +1,9 @@
+.hero {
+    height: 696px;
+    width: 1440px;
+    background-color: var(--main);
+    background-image: url('../../shared/pics/Picture.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
