@@ -3,18 +3,26 @@
 :root {
 
     --main: #101828;
-    --main-bg-color: #FFFFFF;
+    --btn-color: #FFFFFF;
     --active-link-color: #D84343;
     --inputs-color: #F7F7F7;
+    --bg-btn-color: #E44848;
 }
 
 /*Base Styles*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
 body {
 
   font-family: Inter, sans-serif;
   min-width: 1440px;
-
+  
   display: flex;
   justify-content: center;
   align-items: center;
