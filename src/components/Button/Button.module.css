@@ -1,0 +1,25 @@
+.btn {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 173px;
+    white-space: nowrap;
+
+    color: var(--btn-color);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.08px;
+
+    background-color: var(--bg-btn-color);
+    border-radius: 200px;
+    border: none;
+    padding: 16px 60px 16px 60px;
+   
+}
+
+.btn:hover {
+
+    background-color: var(--active-link-color);
+}

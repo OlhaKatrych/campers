@@ -1,4 +1,5 @@
 import css from "./HomePage.module.css";
+import Button from "../../components/Button/Button";
 
 export default function HomePage() {
   return (
@@ -11,7 +12,7 @@ export default function HomePage() {
             You can find everything you want in our catalog
           </h2>
           </div>
-          <button className={css.btn}>View Now</button>
+          <Button>View Now</Button>
         </div>
       </div>
     </main>
