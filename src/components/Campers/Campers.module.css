@@ -1,33 +1,91 @@
+.container {
+
+    display: flex;
+    gap: 24px;
+}
+
 .img {
 
-    max-width: 293px;
+    width: 292px;
     height: 320px;
-    border-radius: 10px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 .content {
 
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.priceIcon {
-
+    width: 524px;
     height: 32px;
+
     display: flex;
-    gap: 13px;
     align-items: center;
-  
+    flex-wrap: wrap;
+
 }
 
-.icon {
-  width: 24px;
-  height: 21px;
-  display: flex;
-  align-items: center;
-  border: transparent;
- 
- 
+.titleName {
+
+    margin-right: auto;
+}
+
+.containerPrice {
+
+    display: flex;
+    gap: 13px;  
+    align-items: center;
+
+}
+
+.price {
+
+    font-size: 24px;
+}
+
+.containerReviewLocation {
+    width: 100%;
+
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--main);
+}
+
+.contentReview {
+
+   display: flex;
+   align-items: center;
+   gap: 4px;
+}
+
+.iconRating {
+
+    display: block;
+   
+}
+
+.containerLocation {
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.containerDesc {
+
+    width: 525px;
+    margin-top: 24px;
+}
+
+.textDesc {
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-desc);
+
+    text-align: left;
 }
