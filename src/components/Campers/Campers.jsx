@@ -45,14 +45,16 @@ export default function Campers({ data }) {
         <div className={css.containerReviewLocation}>
           <div className={css.contentReview}>
             <svg
-              className={`${isActive ? "active" : css.iconRating}`}
+              className={css.iconRating}
               width="16"
               height="16"
               onClick={handleClick}
             >
               <use
                 xlinkHref={`${sprite}#rating`}
-                style={{ fill: isActive ? "#FFC531" : "#F2F4F7" }}
+                style={{
+                  fill: isActive ? "#FFC531" : "#F2F4F7",
+                }}
               />
             </svg>
             <p className={css.textReview}>
