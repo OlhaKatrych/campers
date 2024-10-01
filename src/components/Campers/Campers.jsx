@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 export default function Campers({ data }) {
   const [isActive, setIsActive] = useState(false);
   const [rating, setRating] = useState(data.rating);
+  const [isActivHeart, setIsActiveHeart] = useState(false);
+  const [favourites, setFavourites] = useState([]);
 
   const cardKey = `${data.id}`;
 
@@ -27,6 +29,20 @@ export default function Campers({ data }) {
     setRating(increaseRating);
     localStorage.setItem(`${cardKey}-rating`, increaseRating);
   };
+  const handleClickBtnHeart = () => {
+    let updatedFavourites;
+    setIsActiveHeart(!isActivHeart);
+    setFavourites((prevState) => {
+      const isFavourite = prevState.some((item) => item.id === data.id);
+
+      if (isFavourite) {
+        updatedFavourites = prevState.filter((item) => item.id !== data.id);
+      } else {
+        updatedFavourites = [...prevState, data];
+      }
+    });
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+  };
   console.log(data);
   return (
     <div className={css.container}>
@@ -38,9 +54,17 @@ export default function Campers({ data }) {
             <span>&#8364;</span>
             {Number(`${data.price}`).toFixed(2)}
           </h2>
-          <svg className={css.iconHeart} width="24" height="21">
-            <use xlinkHref={`${sprite}#heart`} />
-          </svg>
+          <button className={css.btnHeart} onClick={handleClickBtnHeart}>
+            <svg
+              width="24"
+              height="24"
+              style={{
+                fill: isActivHeart ? "#E44848" : "#000",
+              }}
+            >
+              <use xlinkHref={`${sprite}#heart`} />
+            </svg>
+          </button>
         </div>
         <div className={css.containerReviewLocation}>
           <div className={css.contentReview}>
