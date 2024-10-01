@@ -64,6 +64,10 @@
 .iconRating {
 
     display: block;
+    stroke: #F2F4F7;
+    fill: #F2F4F7;
+    border-radius: 0.5px;
+    cursor: pointer;
    
 }
 

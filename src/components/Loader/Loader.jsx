@@ -4,8 +4,8 @@ function Loader() {
     <div>
       <ColorRing
         visible={true}
-        height="80"
-        width="80"
+        height="30"
+        width="30"
         ariaLabel="color-ring-loading"
         wrapperStyle={{ display: "block", margin: "0 auto" }}
         wrapperClass="color-ring-wrapper"

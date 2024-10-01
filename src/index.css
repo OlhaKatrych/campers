@@ -9,16 +9,10 @@
     --bg-btn-color: #E44848;
     --border-card: #DADDE1; 
     --text-desc: #475467;
+    --active-rating: #FFC531;
 }
 
 /*Base Styles*/
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 
 body {
 
