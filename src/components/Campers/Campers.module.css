@@ -61,6 +61,13 @@
    gap: 4px;
 }
 
+.btnRating {
+
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
 .iconRating {
 
     display: block;

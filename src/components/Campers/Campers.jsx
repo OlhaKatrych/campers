@@ -3,10 +3,10 @@ import { icons as sprite } from "../../shared/icons/index";
 import { useState, useEffect } from "react";
 
 export default function Campers({ data }) {
+  console.log(data);
   const [isActive, setIsActive] = useState(false);
   const [rating, setRating] = useState(data.rating);
   const [isActivHeart, setIsActiveHeart] = useState(false);
-  const [favourites, setFavourites] = useState([]);
 
   const cardKey = `${data.id}`;
 
@@ -20,7 +20,7 @@ export default function Campers({ data }) {
       setRating(savedRating);
     }
   }, [cardKey]);
-  const handleClick = () => {
+  const handleClickRating = () => {
     if (!isActive) {
       setIsActive(true);
       localStorage.setItem(`${cardKey}-active`, "true");
@@ -29,21 +29,9 @@ export default function Campers({ data }) {
     setRating(increaseRating);
     localStorage.setItem(`${cardKey}-rating`, increaseRating);
   };
-  const handleClickBtnHeart = () => {
-    let updatedFavourites;
+  const handleClickHeart = () => {
     setIsActiveHeart(!isActivHeart);
-    setFavourites((prevState) => {
-      const isFavourite = prevState.some((item) => item.id === data.id);
-
-      if (isFavourite) {
-        updatedFavourites = prevState.filter((item) => item.id !== data.id);
-      } else {
-        updatedFavourites = [...prevState, data];
-      }
-    });
-    localStorage.setItem("favourites", JSON.stringify(favourites));
   };
-  console.log(data);
   return (
     <div className={css.container}>
       <img src={data.gallery[0].original} className={css.img} />
@@ -54,7 +42,7 @@ export default function Campers({ data }) {
             <span>&#8364;</span>
             {Number(`${data.price}`).toFixed(2)}
           </h2>
-          <button className={css.btnHeart} onClick={handleClickBtnHeart}>
+          <button className={css.btnHeart} onClick={handleClickHeart}>
             <svg
               width="24"
               height="24"
@@ -68,19 +56,16 @@ export default function Campers({ data }) {
         </div>
         <div className={css.containerReviewLocation}>
           <div className={css.contentReview}>
-            <svg
-              className={css.iconRating}
-              width="16"
-              height="16"
-              onClick={handleClick}
-            >
-              <use
-                xlinkHref={`${sprite}#rating`}
-                style={{
-                  fill: isActive ? "#FFC531" : "#F2F4F7",
-                }}
-              />
-            </svg>
+            <button className={css.btnRating} onClick={handleClickRating}>
+              <svg className={css.iconRating} width="16" height="16">
+                <use
+                  xlinkHref={`${sprite}#rating`}
+                  style={{
+                    fill: isActive ? "#FFC531" : "#F2F4F7",
+                  }}
+                />
+              </svg>
+            </button>
             <p className={css.textReview}>
               <span className={css.rat}>{rating}</span> (
               {data.reviews[0].reviewer_rating} Reviews)
