@@ -1,12 +1,17 @@
 import css from "./Campers.module.css";
 import { icons as sprite } from "../../shared/icons/index";
 import { useState, useEffect } from "react";
+import { selectFavourites } from "../../redux/favouritesCampers/selectors";
+import { useSelector } from "react-redux";
+import { addFavourite } from "../../redux/favouritesCampers/slice";
+import { useDispatch } from "react-redux";
 
 export default function Campers({ data }) {
-  console.log(data);
   const [isActive, setIsActive] = useState(false);
   const [rating, setRating] = useState(data.rating);
-  const [isActivHeart, setIsActiveHeart] = useState(false);
+  const [isActiveHeart, setIsActiveHeart] = useState(false);
+  const favourites = useSelector(selectFavourites);
+  const dispatch = useDispatch();
 
   const cardKey = `${data.id}`;
 
@@ -20,6 +25,7 @@ export default function Campers({ data }) {
       setRating(savedRating);
     }
   }, [cardKey]);
+
   const handleClickRating = () => {
     if (!isActive) {
       setIsActive(true);
@@ -30,7 +36,8 @@ export default function Campers({ data }) {
     localStorage.setItem(`${cardKey}-rating`, increaseRating);
   };
   const handleClickHeart = () => {
-    setIsActiveHeart(!isActivHeart);
+    setIsActiveHeart(!isActiveHeart);
+    dispatch(addFavourite(`${cardKey} - favorites`));
   };
   return (
     <div className={css.container}>
@@ -47,7 +54,7 @@ export default function Campers({ data }) {
               width="24"
               height="24"
               style={{
-                fill: isActivHeart ? "#E44848" : "#000",
+                fill: isActiveHeart ? "#E44848" : "#000",
               }}
             >
               <use xlinkHref={`${sprite}#heart`} />

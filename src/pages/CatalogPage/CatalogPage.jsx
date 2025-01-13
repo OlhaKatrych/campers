@@ -1,5 +1,3 @@
-import css from "./CatalogPage.module.css";
-import { icons } from "../../shared/icons/index";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/campers/operations";
