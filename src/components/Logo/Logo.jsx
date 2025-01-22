@@ -4,9 +4,9 @@ import logo from "../../assets/logo.svg";
 
 export default function Logo() {
   return (
-    <nav className={css.logoContainer}>
+    <nav className={css.navContainer}>
       <Link to="/">
-        <img src={logo} alt="TravelTrucks logo" className={css.logo} />
+        <img src={logo} alt="TravelTrucks logo" />
       </Link>
     </nav>
   );

@@ -7,13 +7,16 @@ import "./index.css";
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+import  ThemeContextProvider  from "./Theme/ThemeContextProvider";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
-          <App />
+          <ThemeContextProvider>
+            <App />
+          </ThemeContextProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>

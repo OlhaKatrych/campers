@@ -2,6 +2,6 @@
     width: 1440px;
     display: flex;
     align-items: center;
-    padding: 24px 64px 24px 64px;
+    padding: 24px 0px;
     background-color: var(--inputs-color);
 }
