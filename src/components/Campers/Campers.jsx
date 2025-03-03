@@ -1,16 +1,15 @@
 import css from "./Campers.module.css";
 import { icons as sprite } from "../../shared/icons/index";
 import { useState, useEffect } from "react";
-import { selectFavourites } from "../../redux/favouritesCampers/selectors";
-import { useSelector } from "react-redux";
 import { addFavourite } from "../../redux/favouritesCampers/slice";
 import { useDispatch } from "react-redux";
 
 export default function Campers({ data }) {
+  console.log(data);
   const [isActive, setIsActive] = useState(false);
   const [rating, setRating] = useState(data.rating);
   const [isActiveHeart, setIsActiveHeart] = useState(false);
-  const favourites = useSelector(selectFavourites);
+  const [isExpandedText, setIsExpandedText] = useState(false);
   const dispatch = useDispatch();
 
   const cardKey = `${data.id}`;
@@ -38,6 +37,12 @@ export default function Campers({ data }) {
   const handleClickHeart = () => {
     setIsActiveHeart(!isActiveHeart);
     dispatch(addFavourite(`${cardKey} - favorites`));
+  };
+
+  const maxLength = 65;
+
+  const toggleText = () => {
+    setIsExpandedText(!isExpandedText);
   };
   return (
     <div className={css.container}>
@@ -86,7 +91,24 @@ export default function Campers({ data }) {
           </div>
         </div>
         <div className={css.containerDesc}>
-          <p className={css.textDesc}>{data.description}</p>
+          <p className={css.textDesc}>
+            {isExpandedText
+              ? data.description
+              : `${data.description.slice(0, maxLength)}`}
+            {data.description.length > maxLength && (
+              <button className={css.readMore} onClick={toggleText}>
+                ...
+              </button>
+            )}
+          </p>
+          <div className={css.badgesContainer}>
+            <span className={css.badges}>
+              <svg width="20" height="15">
+                <use xlinkHref={`${sprite}#diagram`} />
+              </svg>
+              Automatic
+            </span>
+          </div>
         </div>
       </div>
     </div>

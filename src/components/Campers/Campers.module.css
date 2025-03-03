@@ -105,6 +105,32 @@
     font-weight: 400;
     line-height: 1.5;
     color: var(--text-desc);
-
     text-align: left;
+}
+
+.readMore {
+
+    background-color: transparent;
+    border: none;
+}
+
+.badgesContainer {
+
+    margin-block-start: 24px;
+}
+
+.badges {
+    background-color: #F2F4F7;
+    border-radius: 100px;
+
+    inline-size: 143px;
+    padding-inline-start: 18px;
+    padding-inline-end: 18px;
+    padding-block-start: 14px;
+    padding-block-end: 14px;
+    
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
