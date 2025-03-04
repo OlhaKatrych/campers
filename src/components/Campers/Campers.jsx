@@ -3,6 +3,7 @@ import { icons as sprite } from "../../shared/icons/index";
 import { useState, useEffect } from "react";
 import { addFavourite } from "../../redux/favouritesCampers/slice";
 import { useDispatch } from "react-redux";
+import Button from "../Button/Button";
 
 export default function Campers({ data }) {
   console.log(data);
@@ -12,7 +13,7 @@ export default function Campers({ data }) {
   const [isExpandedText, setIsExpandedText] = useState(false);
   const dispatch = useDispatch();
 
-  const cardKey = `${data.id}`;
+  const cardKey = data.id;
 
   useEffect(() => {
     const savedState = localStorage.getItem(`${cardKey}-active`);
@@ -46,6 +47,7 @@ export default function Campers({ data }) {
   };
   return (
     <div className={css.container}>
+    
       <img src={data.gallery[0].original} className={css.img} />
       <div className={css.content}>
         <h2 className={css.titleName}>{data.name}</h2>
@@ -103,13 +105,34 @@ export default function Campers({ data }) {
           </p>
           <div className={css.badgesContainer}>
             <span className={css.badges}>
-              <svg width="20" height="15">
+              <svg width="20" height="20">
                 <use xlinkHref={`${sprite}#diagram`} />
               </svg>
               Automatic
             </span>
+            <span className={css.badges}>
+              <svg width="20" height="20">
+                <use xlinkHref={`${sprite}#fuel`} />
+              </svg>
+              Petrol
+            </span>
+
+            <span className={css.badges}>
+              <svg width="20" height="20">
+                <use xlinkHref={`${sprite}#cup`} />
+              </svg>
+              Kitchen
+            </span>
+            <span className={css.badges}>
+              <svg width="20" height="20">
+                <use xlinkHref={`${sprite}#wind`} />
+              </svg>
+              AC
+            </span>
+          
           </div>
         </div>
+        <Button>Show more</Button>
       </div>
     </div>
   );

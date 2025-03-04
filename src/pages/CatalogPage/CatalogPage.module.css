@@ -1,0 +1,8 @@
+.catalogPageContainer{
+
+    margin-block-start: 48px;
+
+    display: flex;
+    justify-content: center;
+    gap: 58px;
+}
