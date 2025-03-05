@@ -5,8 +5,9 @@ import { fetchCampers } from "../../redux/campers/operations";
 import { selectCampers, selectLoading } from "../../redux/campers/selectors";
 
 import Loader from "../../components/Loader/Loader";
-import SearBar from "../../components/SearchBar/SearchBar";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import CampersList from "../../components/CampersList/CampersList";
+import VehicleEquipment from "../../components/Vehicle/VehicleEquipment/VehicleEquipment";
 
 function CatalogPage() {
   const isLoading = useSelector(selectLoading);
@@ -17,8 +18,10 @@ function CatalogPage() {
   }, [dispatch]);
   return (
     <div className={css.catalogPageContainer}>
-      <div>
-        <SearBar />
+      <div className={css.filterContainer}>
+        <SearchBar />
+        <p className={css.textFilter}>Filters</p>
+        <VehicleEquipment />
       </div>
       {isLoading && <Loader />}
       {campers.length > 0 && <CampersList />}

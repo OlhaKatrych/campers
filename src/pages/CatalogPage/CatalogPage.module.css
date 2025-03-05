@@ -6,3 +6,14 @@
     justify-content: center;
     gap: 58px;
 }
+
+.filterContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.textFilter {
+    margin-block-end: 32px;
+    color: var(--text-desc);
+    font-weight: 500;
+}

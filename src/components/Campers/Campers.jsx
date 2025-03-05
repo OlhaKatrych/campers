@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import Button from "../Button/Button";
 
 export default function Campers({ data }) {
-  console.log(data);
   const [isActive, setIsActive] = useState(false);
   const [rating, setRating] = useState(data.rating);
   const [isActiveHeart, setIsActiveHeart] = useState(false);
@@ -47,7 +46,6 @@ export default function Campers({ data }) {
   };
   return (
     <div className={css.container}>
-    
       <img src={data.gallery[0].original} className={css.img} />
       <div className={css.content}>
         <h2 className={css.titleName}>{data.name}</h2>
@@ -96,41 +94,40 @@ export default function Campers({ data }) {
           <p className={css.textDesc}>
             {isExpandedText
               ? data.description
-              : `${data.description.slice(0, maxLength)}`}
+              : data.description.slice(0, maxLength)}
             {data.description.length > maxLength && (
               <button className={css.readMore} onClick={toggleText}>
                 ...
               </button>
             )}
           </p>
-          <div className={css.badgesContainer}>
-            <span className={css.badges}>
+          <ul className={css.badgesContainer}>
+            <li className={css.badges}>
               <svg width="20" height="20">
                 <use xlinkHref={`${sprite}#diagram`} />
               </svg>
               Automatic
-            </span>
-            <span className={css.badges}>
+            </li>
+            <li className={css.badges}>
               <svg width="20" height="20">
                 <use xlinkHref={`${sprite}#fuel`} />
               </svg>
               Petrol
-            </span>
+            </li>
 
-            <span className={css.badges}>
+            <li className={css.badges}>
               <svg width="20" height="20">
                 <use xlinkHref={`${sprite}#cup`} />
               </svg>
               Kitchen
-            </span>
-            <span className={css.badges}>
+            </li>
+            <li className={css.badges}>
               <svg width="20" height="20">
                 <use xlinkHref={`${sprite}#wind`} />
               </svg>
               AC
-            </span>
-          
-          </div>
+            </li>
+          </ul>
         </div>
         <Button>Show more</Button>
       </div>

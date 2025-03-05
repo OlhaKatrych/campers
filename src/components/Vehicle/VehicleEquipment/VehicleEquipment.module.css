@@ -1,0 +1,51 @@
+.vehicleEquipmentWrapper {
+    inline-size: 360px;
+    display: flex;
+    flex-direction: column;
+
+    margin-block-end: 32px;
+}
+.titleLevelThree{
+    margin-block-end: 24px;
+}
+
+hr {
+
+    border: none; 
+    inline-size: 100%;
+    height: 2px; 
+    background-color: #DADDE1; 
+    margin-block-end: 24px;
+
+}
+.listContainer {
+   
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    flex: calc((100% - 24px) /3);
+}
+.buttonFilter {
+
+    inline-size: 112px;
+    block-size: 96px;
+    border-radius: 12px;
+   
+    background-color: var(--btn-color);
+    border: 1px solid #DADDE1;
+    
+    
+}
+
+.iconTextWrapper {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+
+
+
