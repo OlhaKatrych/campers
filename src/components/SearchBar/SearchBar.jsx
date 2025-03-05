@@ -24,11 +24,7 @@ function SearchBar() {
 
   return (
     <div className={css.serachBarContainer}>
-      <label
-        className={css.labelLocation}
-        htmlFor="location"
-        onClick={setCursorToEnd}
-      >
+      <label className={css.labelLocation} htmlFor="location">
         Location
       </label>
       <div className={css.inputWrapper}>
@@ -37,7 +33,7 @@ function SearchBar() {
             <use xlinkHref={`${sprite}#map`} />
           </svg>
         </span>
-        <input className={css.inputLocation} id="location" ref={inputRef} />
+        <input className={css.inputLocation} id="location" ref={inputRef} onClick={setCursorToEnd}/>
       </div>
     </div>
   );
